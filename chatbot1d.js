@@ -1,10 +1,10 @@
 const eris = require('eris');
-const { BOT_OWNER_ID, BOT_TOKEN } = require('../config.json');
+const { kat_owner_ID, kat_token } = require('../config.json');
 
 const PREFIX = 'pb!';
 const PREMIUM_CUTOFF = 10;
 
-const bot = new eris.Client(BOT_TOKEN);
+const bot = new eris.Client(kat_token);
 
 const specialTrait = {
   name: 'Special Member',
@@ -54,7 +54,7 @@ bot.on('messageCreate', async (msg) => {
     const content = msg.content;
 
     //ignores messages sent as DMs
-    //Katht will only accept commands issued in a guild
+    //Kathy will only accept commands issued in a guild
     if (!msg.channel.guild) {
       return;
     }
@@ -75,7 +75,7 @@ bot.on('messageCreate', async (msg) => {
     }
 
     //if command is only for Kathys owner refuses to execute for any other user
-    const authorIsBotOwner = msg.author.id === BOT_OWNER_ID;
+    const authorIsBotOwner = msg.author.id === kat_owner_ID;
     if (command.botOwnerOnly && !authorIsBotOwner) {
       return await msg.channel.createMessage('Nope, not today!');
     }
