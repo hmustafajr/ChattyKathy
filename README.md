@@ -1,0 +1,2 @@
+# ChattyKathy
+Discord Chat Bot
