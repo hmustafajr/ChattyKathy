@@ -1,9 +1,9 @@
 const eris = require('eris');
-const { BOT_TOKEN, BOT_OWNER_ID } = require('../config.json');
+const { kat_token, kat_owner_ID } = require('../config.json');
 
 const PREFIX = 'pb!';
 
-const bot = new eris.Client(BOT_TOKEN);
+const bot = new eris.Client(kat_token);
 
 const commandForName = {};
 commandForName['addpayment'] = {
@@ -48,7 +48,7 @@ bot.on('messageCreate', async (msg) => {
 
     // If this command is only for the bot owner, refuse
     // to execute it for any other user.
-    const authorIsBotOwner = msg.author.id === BOT_OWNER_ID;
+    const authorIsBotOwner = msg.author.id === kat_owner_ID;
     if (command.botOwnerOnly && !authorIsBotOwner) {
       return await msg.channel.createMessage('Hey, only my owner can issue that command!');
     }
