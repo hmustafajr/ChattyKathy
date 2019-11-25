@@ -10,7 +10,7 @@ const bot = new eris.Client(BOT_TOKEN);
 const specialTrait = {
   name: 'Special Member',
   color: 0x6aa84f,
-  hoist: true, //Displays users with this trait in their section of the member list.
+  hoist: true, //displays users with this trait in their section of the member list.
 };
 
 async function updateMemberRoleForDonation(guild, member, donationAmount) {
@@ -24,7 +24,7 @@ async function updateMemberRoleForDonation(guild, member, donationAmount) {
       role = await guild.createRole(specialTrait);
     }
 
-    //Appends the role to the user with explanation
+    //appends the role to the user with explanation
     return member.addRole(role.id, 'Donated Money');
   }
 }
@@ -60,37 +60,37 @@ bot.on('messageCreate', async (msg) => {
   try {
     const content = msg.content;
 
-    //Ignores any message sent as DM
-    //Only accept commands issued in guild
+    //ignores any message sent as DM
+    //only accept commands issued in guild
     if (!msg.channel.guild) {
       return;
     }
 
-    //Ignores messages that don't start with the correct prefix
+    //ignores messages that don't start with the correct prefix
     if (!content.startsWith(PREFIX)) {
       return;
     }
 
-    //Extracts the name of the command
+    //extracts the name of the command
     const parts = content.split(' ').map(s => s.trim()).filter(s => s);
     const commandName = parts[0].substr(PREFIX.length);
 
-    //Obtains the requested command if one exists
+    //obtains the requested command if one exists
     const command = commandForName[commandName];
     if (!command) {
       return;
     }
 
-    //If command is only for the bot owner refuse to execute for other users.
+    //if command is only for the bot owner refuse to execute for other users.
     const authorIsBotOwner = msg.author.id === BOT_OWNER_ID;
     if (command.botOwnerOnly && !authorIsBotOwner) {
       return await msg.channel.createMessage('Maybe ask nicer');
     }
 
-    //Separates command arguments from command prefix and name.
+    //separates command arguments from command prefix and name.
     const args = parts.slice(1);
 
-    //Executes the command.
+    //executes the command.
     await command.execute(msg, args);
   } catch (err) {
     console.warn('Error handling message create event');
