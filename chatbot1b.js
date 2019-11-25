@@ -1,9 +1,9 @@
 const eris = require('eris');
-const { BOT_TOKEN } = require('../config.json');
+const { kat_token } = require('../config.json');
 
 const PREFIX = 'pb!';
 
-const bot = new eris.Client(BOT_TOKEN);
+const bot = new eris.Client(kat_token);
 
 const commandHandlerForCommandName = {};
 commandHandlerForCommandName['addpayment'] = (msg, args) => {
