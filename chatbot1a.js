@@ -1,8 +1,8 @@
 const eris = require('eris');
-const { BOT_TOKEN } = require('../config.json');
+const { kat_token } = require('../config.json');
 
 //generates an instance with your bot token
-const bot = new eris.Client(BOT_TOKEN);
+const bot = new eris.Client(kat_token);
 
 //When the Kathy is connected and ready, logs to console
 bot.on('ready', () => {
