@@ -1,6 +1,6 @@
 const eris = require('eris');
 const webhookListener = require('./webhook_listener.js');
-const { BOT_OWNER_ID, BOT_TOKEN, LOG_CHANNEL_ID } = require('../config.json');
+const { kat_owner_ID, kat_token, log_channel_ID } = require('../config.json');
 
 const PREFIX = 'pb!';
 const PREMIUM_CUTOFF = 10;
@@ -41,12 +41,12 @@ commandForName['addpayment'] = {
 
     const userIsInGuild = !!member;
     if (!userIsInGuild) {
-      return msg.channel.createMessage('User not found here.');
+      return msg.channel.createMessage('user not found here');
     }
 
     const amountIsValid = amount && !Number.isNaN(amount);
     if (!amountIsValid) {
-      return msg.channel.createMessage('Please provide valid amount');
+      return msg.channel.createMessage('please provide valid amount');
     }
 
     return Promise.all([
@@ -82,9 +82,9 @@ bot.on('messageCreate', async (msg) => {
     }
 
     //if command is only for the bot owner refuse to execute for other users.
-    const authorIsBotOwner = msg.author.id === BOT_OWNER_ID;
+    const authorIsBotOwner = msg.author.id === kat_owner_ID;
     if (command.botOwnerOnly && !authorIsBotOwner) {
-      return await msg.channel.createMessage('Maybe ask nicer');
+      return await msg.channel.createMessage('maybe if you ask nicer');
     }
 
     //separates command arguments from command prefix and name.
@@ -104,7 +104,7 @@ bot.on('error', err => {
 
 function findUserInString(str) {
   const lowercaseStr = str.toLowerCase();
-  //Searches for a username in the form of username#discriminator.
+  //searches for a username in the form of username#discriminator.
   const user = bot.users.find(
     user => lowercaseStr.indexOf(`${user.username.toLowerCase()}#${user.discriminator}`) !== -1,
   );
