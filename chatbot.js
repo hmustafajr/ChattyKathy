@@ -132,7 +132,7 @@ function logDonation(member, donationAmount, paymentSource, paymentId, senderNam
     }
   }
 
-  bot.createMessage(LOG_CHANNEL_ID, logMessage);
+  bot.createMessage(log_channel_ID, logMessage);
 }
 
 async function onDonation(
