@@ -14,9 +14,9 @@ const specialTrait = {
 };
 
 async function updateMemberRoleForDonation(guild, member, donationAmount) {
-  //If user donated more than $10, give them the premium trait
+  //if user donated more than $10, give them the premium trait
   if (guild && member && donationAmount >= PREMIUM_CUTOFF) {
-    //Obtains role or generates it
+    //obtains role or generates it
     let role = Array.from(guild.roles.values())
       .find(role => role.name === specialTrait.name);
 
