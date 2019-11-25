@@ -10,9 +10,9 @@ commandHandlerForCommandName['addpayment'] = (msg, args) => {
   const mention = args[0];
   const amount = parseFloat(args[1]);
 
-  //Handles invalid commands by:
-  //1. No mention or invalid mention
-  //2. No amount or invalid amount
+  //handles invalid commands by:
+  //1. no mention or invalid mention
+  //2. no amount or invalid amount
 
   return msg.channel.createMessage(`${mention} paid $${amount.toFixed(2)}`);
 };
