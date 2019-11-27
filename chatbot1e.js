@@ -9,13 +9,13 @@ const bot = new eris.Client(kat_token);
 const premiumRole = {
   name: 'Premium Member',
   color: 0x6aa84f,
-  hoist: true, // Show users with this role in their own section of the member list.
+  hoist: true, //displays users with this role in their own section of the member list
 };
 
 async function updateMemberRoleForDonation(guild, member, donationAmount) {
-  // If the user donated more than $10, give them the premium role.
+  //if user donated more than $10 grants premium role
   if (guild && member && donationAmount >= PREMIUM_CUTOFF) {
-    // Get the role, or if it doesn't exist, create it.
+    //obtains the role or creates it
     let role = Array.from(guild.roles.values())
       .find(role => role.name === premiumRole.name);
 
