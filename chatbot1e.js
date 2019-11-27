@@ -7,7 +7,7 @@ const PREMIUM_CUTOFF = 10;
 const bot = new eris.Client(kat_token);
 
 const premiumRole = {
-  name: 'Premium Member',
+  name: 'Special Member',
   color: 0x6aa84f,
   hoist: true, //displays users with this role in their own section of the member list
 };
