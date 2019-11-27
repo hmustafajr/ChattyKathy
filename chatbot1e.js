@@ -23,8 +23,7 @@ async function updateMemberRoleForDonation(guild, member, donationAmount) {
       role = await guild.createRole(premiumRole);
     }
 
-    // Add the role to the user, along with an explanation
-    // for the guild log (the "audit log").
+    //appends the role to the user with an explanation for the guild log
     return member.addRole(role.id, 'Donated $10 or more.');
   }
 }
@@ -60,39 +59,37 @@ bot.on('messageCreate', async (msg) => {
   try {
     const content = msg.content;
 
-    // Ignore any messages sent as direct messages.
-    // The bot will only accept commands issued in
-    // a guild.
+    //ignores messages sent as DMs
+    //Kathy will only accept commands issued in a guild
     if (!msg.channel.guild) {
       return;
     }
 
-    // Ignore any message that doesn't start with the correct prefix.
+    //ignores messages that don't have the correct prefix
     if (!content.startsWith(PREFIX)) {
       return;
     }
 
-    // Extract the name of the command
+    //extracts the name of the command
     const parts = content.split(' ').map(s => s.trim()).filter(s => s);
     const commandName = parts[0].substr(PREFIX.length);
 
-    // Get the requested command, if there is one.
+    //obtains the exesting requested command
     const command = commandForName[commandName];
     if (!command) {
       return;
     }
 
-    // If this command is only for the bot owner, refuse
-    // to execute it for any other user.
+    //if command is only for the bot owner refuses to execute
     const authorIsBotOwner = msg.author.id === kat_owner_ID;
     if (command.botOwnerOnly && !authorIsBotOwner) {
       return await msg.channel.createMessage('Hey, only my owner can issue that command!');
     }
 
-    // Separate the command arguments from the command prefix and name.
+    //separates command args from command prefix and name
     const args = parts.slice(1);
 
-    // Execute the command.
+    //executes the command
     await command.execute(msg, args);
   } catch (err) {
     console.warn('Error handling message create event');
