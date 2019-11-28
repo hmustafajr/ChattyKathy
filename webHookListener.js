@@ -18,7 +18,7 @@ class WebhookListener extends EventEmitter {
       const paymentSource = 'Ko-fi';
 
       //the OK status is intended for me to observe in Postman
-	    /ko-fi disregards response body and only observes 200 status
+	    //ko-fi disregards response body and only observes 200 status
       res.send({ status: 'OK' });
 
       this.emit(
