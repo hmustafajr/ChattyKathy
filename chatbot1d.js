@@ -15,7 +15,7 @@ const specialTrait = {
 async function updateMemberRoleForDonation(guild, member, donationAmount) {
   //if the user donated more than $10, give them the specialTrait.
   if (guild && member && donationAmount >= PREMIUM_CUTOFF) {
-    //obtains the role or creates it.
+    //obtains the role or creates it
     let role = Array.from(guild.roles.values())
       .find(role => role.name === specialTrait.name);
 
@@ -39,8 +39,8 @@ commandForName['addpayment'] = {
     const member = guild.members.get(userId);
 
     //handles invalid args
-    //1. No mention or invalid mention.
-    //2. No amount or invalid amount.
+    //1. No mention or invalid mention
+    //2. No amount or invalid amount
 
     return Promise.all([
       msg.channel.createMessage(`${mention} paid $${amount.toFixed(2)}`),
