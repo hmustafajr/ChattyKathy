@@ -10,7 +10,7 @@ const bot = new eris.Client(kat_token);
 const specialTrait = {
   name: 'Special Member',
   color: 0x6aa84f,
-  hoist: true, //displays users with this trait in their section of the member list.
+  hoist: true, //displays users with this trait in their section of the member list
 };
 
 async function updateMemberRoleForDonation(guild, member, donationAmount) {
@@ -81,7 +81,7 @@ bot.on('messageCreate', async (msg) => {
       return;
     }
 
-    //if command is only for the bot owner refuse to execute for other users.
+    //if command is only for the bot owner refuse to execute for other users
     const authorIsBotOwner = msg.author.id === kat_owner_ID;
     if (command.botOwnerOnly && !authorIsBotOwner) {
       return await msg.channel.createMessage('maybe if you ask nicer');
@@ -104,7 +104,7 @@ bot.on('error', err => {
 
 function findUserInString(str) {
   const lowercaseStr = str.toLowerCase();
-  //searches for a username in the form of username#discriminator.
+  //searches for a username in the form of username#discriminator
   const user = bot.users.find(
     user => lowercaseStr.indexOf(`${user.username.toLowerCase()}#${user.discriminator}`) !== -1,
   );
