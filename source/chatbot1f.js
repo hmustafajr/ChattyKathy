@@ -1,8 +1,8 @@
 const eris = require('eris');
 const webhookListener = require('./webhook_listener_step6.js');
-const { BOT_OWNER_ID, BOT_TOKEN } = require('../config.json');
+const { kat_owner_ID, kat_token } = require('../config.json');
 
-const PREFIX = 'pb!';
+const PREFIX = 'ck!';
 const PREMIUM_CUTOFF = 10;
 
 const bot = new eris.Client(BOT_TOKEN);
