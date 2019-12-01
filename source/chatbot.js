@@ -2,7 +2,7 @@ const eris = require('eris'); //eirs is the Discord API Library that I am going 
 const webhookListener = require('./webhook_listener.js');
 const { kat_owner_ID, kat_token, log_channel_ID } = require('../config.json');
 
-const PREFIX = 'pb!';
+const PREFIX = 'ck!';
 const PREMIUM_CUTOFF = 10;
 
 const bot = new eris.Client(kat_token);
