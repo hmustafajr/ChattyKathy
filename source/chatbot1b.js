@@ -1,7 +1,7 @@
 const eris = require('eris');
 const { kat_token } = require('../config.json');
 
-const PREFIX = 'pb!';
+const PREFIX = 'ck!';
 
 const bot = new eris.Client(kat_token);
 
